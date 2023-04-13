@@ -1,0 +1,12 @@
+/**clothing (dresses (4), skirts (3), tops (3), shoes (4), bags (3)) **/
+
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO clothing VALUES (1, "dresses", 4, 10);
+INSERT INTO clothing VALUES (2, "skirts", 3, 5);
+INSERT INTO clothing VALUES (3, "tops", 3, 5);
+INSERT INTO clothing VALUES (4, "shoes", 4, 10);
+INSERT INTO clothing values (5, "bags", 3, 5);
+
+--display the database ordered by price.
+SELECT * FROM clothing WHERE price >=5 ORDER by price asc;
