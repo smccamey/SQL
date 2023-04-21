@@ -1,0 +1,85 @@
+/* I will be creating tables about Bravo's Real Housewives. I will create tables showing their ages, shows, and whether or not they were a part of spinoffs then I will relate them to one another.*/
+
+CREATE TABLE real_housewives_age 
+(id INTEGER PRIMARY KEY,
+name TEXT,
+age INTEGER);
+INSERT INTO real_housewives_age VALUES 
+(1, "Dorit Kemsley", 46),
+(2, "Gizelle Bryant", 52),
+(3, "Whitney Rose", 36),
+(4, "Robyn Dixon", 44),
+(5, "Teresa Giudice", 50),
+(6, "Lisa Vanderpump", 62),
+(7, "Lisa Barlow", 48),
+(8, "Erika Jayne", 51),
+(9, "NeNe Leakes", 55),
+(10, "Kenya Moore", 52),
+(11, "Meredith Marks", 51),
+(12, "Porsha Williams", 41),
+(13, "Melissa Gorga", 44),
+(14, "Ashley Darby", 34),
+(15, "Alexia Echevarria", 55);
+
+SELECT name, age FROM real_housewives_age 
+ORDER BY age asc;
+/*This query lists the housewives by age, from youngest to oldest. We can see that Ashley Darby is the youngest housewife on the list with Lisa Vanderpump being the oldest.*/
+
+CREATE TABLE real_housewives_show
+(id INTEGER PRIMARY KEY,
+name TEXT,
+show TEXT);
+INSERT INTO real_housewives_show VALUES
+(1, "Dorit Kemsley","RHOBH"),
+(2, "Gizelle Bryant", "RHOP"),
+(3, "Whitney Rose", "RHOSLC"),
+(4, "Robyn Dixon", "RHOP"),
+(5, "Teresa Giudice", "RHONJ"),
+(6, "Lisa Vanderpump", "RHOBH"),
+(7, "Lisa Barlow", "RHOSLC"),
+(8, "Erika Jayne", "RHOBH"),
+(9, "NeNe Leakes", "RHOA"),
+(10, "Kenya Moore", "RHOA"),
+(11, "Meredith Marks", "RHOSLC"),
+(12, "Porsha Williams", "RHOA"),
+(13, "Melissa Gorga", "RHONJ"),
+(14, "Ashley Darby", "RHOP"),
+(15, "Alexia Echevarria", "RHOM");
+
+SELECT name, show FROM real_housewives_show
+ORDER BY show;
+/*This query lists each housewife and their respective show, so we can see which housewives are on the same show. We can see that most housewives on this list have other castmates, but Alexia Echevarria is the only housewife from RHOM.*/
+
+CREATE TABLE real_housewives_spinoff
+(id INTEGER PRIMARY KEY,
+name TEXT,
+spinoff TEXT);
+INSERT INTO real_housewives_spinoff VALUES
+(1, "Dorit Kemsley", "N"),
+(2, "Gizelle Bryant", "Y"),
+(3, "Whitney Rose", "Y"),
+(4, "Robyn Dixon", "N"),
+(5, "Teresa Giudice", "Y"),
+(6, "Lisa Vanderpump", "Y"),
+(7, "Lisa Barlow", "N"),
+(8, "Erika Jayne", "N"),
+(9, "NeNe Leakes", "N"),
+(10, "Kenya Moore", "Y"),
+(11, "Meredith Marks", "N"),
+(12, "Porsha Williams", "Y"),
+(13, "Melissa Gorga", "Y"),
+(14, "Ashley Darby", "N"),
+(15, "Alexia Echevarria", "Y");
+
+SELECT name, spinoff FROM real_housewives_spinoff
+ORDER BY spinoff desc;
+/*This query shows us which housewives have been part of other Bravo spinoffs and which ones have not. We see that most of the housewives on this list have been on spinoffs.*/
+
+SELECT a.name, a.age, b.show, c.spinoff
+FROM real_housewives_age as a
+JOIN real_housewives_show as b
+ON a.id=b.id
+JOIN real_housewives_spinoff as c
+ON b.id=c.id
+ORDER BY show asc;
+/*The final query shows a combination of all 3 tables. We see each housewife's name, age, show, and spinoff. I have organized them by show and now we can see the similarities in age and spinoff for each show.*/
