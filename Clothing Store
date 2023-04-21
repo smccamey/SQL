@@ -8,5 +8,15 @@ INSERT INTO clothing VALUES (3, "tops", 3, 5);
 INSERT INTO clothing VALUES (4, "shoes", 4, 10);
 INSERT INTO clothing values (5, "bags", 3, 5);
 
---display the database ordered by price.
-SELECT * FROM clothing WHERE price >=5 ORDER by price asc;
+/*-- we can see each item ordered by price when the price is greater than 5.*/
+SELECT * FROM clothing
+WHERE price >5 
+ORDER by price asc;
+
+/*-- we can see each item and how many are in stock/*/
+SELECT item, quantity FROM clothing
+ORDER BY quantity asc;
+
+/*-- we see each item ordered by price from lowest to highest.*/
+SELECT item, price FROM clothing
+ORDER BY price asc;
