@@ -1,4 +1,4 @@
-/* I will be creating tables about Bravo's Real Housewives. I will create tables showing their ages, shows, and whether or not they were a part of spinoffs then I will relate them to one another.*/
+/* In this SQL code, I will be creating tables about Bravo's Real Housewives. I will create tables showing their ages, shows, and whether or not they were a part of spinoffs then I will relate them to one another.*/
 
 CREATE TABLE real_housewives_age 
 (id INTEGER PRIMARY KEY,
