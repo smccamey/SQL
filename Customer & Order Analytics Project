@@ -20,7 +20,6 @@ ON cust.order_id = Feb.orderid
 WHERE length(orderid) = 6 
 AND orderid <> 'Order ID';
 
-
 /* Which product was the cheapest one sold in January, and what was the price? */
 SELECT distinct Product, price FROM BIT_DB.JanSales
 ORDER BY price asc LIMIT 1;
@@ -37,7 +36,6 @@ FROM BIT_DB.FebSales
 WHERE location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY product;
 /* 2 AA Batteries (4-pack) were sold at 548 Lincoln St, Seattle, WA 98101 for a total revenue of $7.68. */
-
 
 /* How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers? */
 SELECT count(distinct cust.acctnum),
