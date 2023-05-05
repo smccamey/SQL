@@ -47,3 +47,8 @@ WHERE Feb.Quantity > 2
 AND length(orderid) = 6 
 AND orderid <> 'Order ID';
 /* 278 customers ordered more than 2 products at a time in February and the average amount spent for those customers was $13.83 (rounded). */
+
+/* List all the products sold in Los Angeles in February, and include how many of each were sold. */
+SELECT distinct Product, SUM(Quantity) FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
