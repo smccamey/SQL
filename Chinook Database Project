@@ -1,19 +1,19 @@
-/* For this project, I downloaded the chinook database then I performed analytics on the data using SQL."
+/* For this project, I downloaded the chinook database then I performed analytics on the data using SQL. */
 
-/* Show Customers (their full names, customer ID, and country) who are not in the US. */
+/* I displayed the full names, customer ID, and country of customers who are not in the US. */
 
 SELECT CustomerId, FirstName, LastName, Country 
 FROM chinook.customers
 WHERE Country <> "USA";
 
 
-/* Show only the Customers from Canada. */
+/* I displayed the customers from Canada. */
 
 SELECT * FROM chinook.customers
 WHERE Country = "Canada";
 
 
-/* Find the Invoices of customers who are from France. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country. */
+/* I found the Invoices of customers who are from France. The resulting table showed the customer's full name, Invoice ID, date of the invoice, and billing country. */
 
 SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.InvoiceDate, inv.BillingCountry
 FROM chinook.invoices AS inv
@@ -22,18 +22,18 @@ on inv.CustomerId = cust.CustomerId
 WHERE inv.BillingCountry = "France";
 
 
-/* Show the Employees who are IT Staff. */
+/* I displayed the employees who are IT Staff. */
 
 SELECT * FROM chinook.employees
 WHERE Title = "IT Staff";
 
 
-/* Find a unique/distinct list of billing cities from the Invoice table. */
+/* I found a unique/distinct list of billing cities from the Invoice table. */
 
 SELECT DISTINCT BillingCity FROM chinook.invoices;
 
 
-/* Provide a query that shows the invoices associated with each sales agent. */
+/* I displayed the invoices associated with each sales agent. */
 
 SELECT emp.LastName, emp.FirstName, inv.InvoiceId 
 FROM chinook.employees AS emp
@@ -41,7 +41,7 @@ JOIN chinook.customers AS cust ON cust.SupportRepId = emp.EmployeeId
 JOIN chinook.invoices as inv ON inv.CustomerId = cust.CustomerId;
 
 
-/* Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers. */
+/* I displayed the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers. */
 
 SELECT emp.LastName, emp.Firstname, cust.FirstName, cust.LastName, cust.Country, inv.Total
 FROM chinook.employees AS emp 
@@ -49,21 +49,21 @@ JOIN chinook.customers AS cust ON cust.SupportRepId = emp.EmployeeId
 JOIN chinook.invoices AS inv ON inv.CustomerId = cust.CustomerId;
 
 
-/* How many Invoices were there in 2010? */
+/* I found all of the Invoices from 2010. */
 
 SELECT COUNT(*)
 FROM chinook.invoices
 WHERE InvoiceDate BETWEEN '2010-01-01' AND '2010-12-31';
 
 
-/* What are the total sales for 2010? */
+/* Then I found the total sales for 2010. */
 
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE InvoiceDate 
 BETWEEN '2010-01-01' AND '2010-12-31';
 
-/* Write a query that includes the purchased track name with each invoice line ID. */
+/* I displayed the purchased track name with each invoice line ID. */
 
 SELECT t.Name, i.InvoiceLineId 
 FROM chinook.invoice_items AS i
@@ -71,7 +71,7 @@ JOIN chinook.tracks AS t
 ON i.TrackId = t.TrackId;
 
 
-/* Write a query that includes the purchased track name AND artist name with each invoice line ID. */
+/* Then I displayed the purchased track name AND artist name with each invoice line ID. */
 
 SELECT ar.Name AS Artist, t.Name AS Track, i.InvoiceLineId
 FROM chinook.Invoice_items AS i
@@ -83,7 +83,7 @@ LEFT JOIN chinook.artists AS ar
 ON ar.ArtistId = a.ArtistId;
 
 
-/* Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre. */
+/* I displayed all the Tracks and included the Album name, Media type, and Genre. */
 
 SELECT t.Name AS 'Track Name', a.Title AS 'Album Title', m.Name AS 'Media Type', g.Name AS 'Genre'
 FROM chinook.tracks AS t
@@ -95,7 +95,7 @@ JOIN chinook.genres AS g
 ON g.GenreId = t.GenreId;
 
 
-/* Show the total sales made by each sales agent. */
+/* I found the total sales made by each sales agent. */
 
 SELECT emp.FirstName, emp.LastName,
 ROUND(SUM(inv.Total), 2) AS 'Total Sales' 
@@ -110,7 +110,7 @@ WHERE emp.Title = 'Sales Support Agent'
 GROUP BY emp.FirstName;
 
 
-/* Which sales agent made the most dollars in sales in 2010? */
+/* Then I found which sales agent made the most dollars in sales in 2010. */
 
 SELECT emp.FirstName, emp.LastName,
 ROUND(SUM(inv.Total), 2) AS 'Total Sales'
