@@ -1,4 +1,4 @@
-/* In this SQL code, I'm querying a database that's holding Nexflix data to answer questions about the data. */
+/* In this SQL code, I'm querying a database that holds Nexflix data. */
 
 /* I displayed how many movie titles are in the database.
 FROM "CharlotteChaze/BreakIntoTech" . "netflix_titles_info"
