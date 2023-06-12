@@ -1,4 +1,6 @@
-/* Put your data in here and query it! */
+/* In this SQL code, I will be creating a table containing Top Movies then I will analyze the data by answering questions. */
+
+/* This is where I created the table */
 CREATE TABLE topmovies(
    Rank        INTEGER,
    Title       TEXT,
@@ -118,7 +120,7 @@ SELECT MAX(year) as maximum_year FROM topmovies;
 SELECT MIN(year) as minimum_year FROM topmovies;
 /*-The average year, rounded, is 2008. The maximum year is 2015 with the minimum year 1977.*/
 
-/*-what about those numbers per category in the data (using HAVING?)*/
+/*-what about those numbers per category in the data?*/
 SELECT title,year FROM topmovies WHERE year=2008
 GROUP BY year
 HAVING year =2008 ORDER BY year;
@@ -130,9 +132,9 @@ HAVING year <2015 ORDER BY year;
 SELECT title, year FROM topmovies WHERE year>1977
 GROUP BY year
 HAVING year >1977 ORDER BY year;
-/*-The first table lists movies made in the average year, 2008. The second table lists movies made before the maximum year, 2015. THe third table lists movies made after the minimum year, 1977.*/
+/*-The first table lists movies made in the average year, 2008. The second table lists movies made before the maximum year, 2015. The third table lists movies made after the minimum year, 1977.*/
 
-/*-what ways are there to group the data values that don't exist yet (USING CASE)?*/
+/*-what ways are there to group the data values that don't exist yet?*/
 SELECT title, year FROM topmovies GROUP BY year
 ORDER BY
 (CASE
@@ -143,6 +145,6 @@ ELSE "null"
 END);
 /*-The first table lists movies made in the average year, 2008. THe second table lists movies made before the maximum year, 2015, and listed in ascending order. The third table lists movies made after the minimum year, 1977, and listed in ascending order.*/
 
-/*-what interesting ways are there to filter the data(using AND/OR)?*/
+/*-what interesting ways are there to filter the data?*/
 SELECT title, year FROM topmovies WHERE year<2015 AND year>1977 AND year=2008 GROUP BY year;
 /*Each table lists the movies in ascending order by year regardless of average, minimum, or maximum year as mentioned before.*/
