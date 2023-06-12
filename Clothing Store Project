@@ -1,4 +1,4 @@
-/**clothing (dresses (4), skirts (3), tops (3), shoes (4), bags (3)) **/
+/** first project - clothing (dresses (4), skirts (3), tops (3), shoes (4), bags (3)) **/
 
 CREATE TABLE clothing (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, price INTEGER);
 
